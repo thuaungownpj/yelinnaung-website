@@ -38,7 +38,7 @@
             cursor: auto; 
         }
 
-        /* --- Custom Magic Cursor --- */
+        /* --- Custom Magic Cursor (PC Only) --- */
         @media (pointer: fine) {
             body { cursor: none; }
             #cursor {
@@ -122,6 +122,11 @@
 
     <div id="navbar-container"></div>
     <div id="home-container"></div>
+    <div id="social-container"></div>
+    <div id="services-container"></div>
+    <div id="software-container"></div>
+    <div id="contact-container"></div>
+
     <script>
         // HTML ဖိုင်များကို လှမ်းခေါ်မည့် Function
         async function loadComponent(elementId, filePath) {
@@ -138,26 +143,31 @@
             }
         }
 
-        // Website ပွင့်သည်နှင့် ဖိုင်များကို အရင်ဆွဲယူမည်
+        // Website ပွင့်သည်နှင့် ဖိုင်အားလုံးကို ပြိုင်တည်းဆွဲယူမည်
         document.addEventListener("DOMContentLoaded", async () => {
             // Components တွေကို အရင်ပြည့်အောင် ခေါ်မယ်
             await Promise.all([
                 loadComponent('navbar-container', 'components/navbar.html'),
-                loadComponent('home-container', 'components/home.html')
+                loadComponent('home-container', 'components/home.html'),
+                loadComponent('social-container', 'components/social.html'),
+                loadComponent('services-container', 'components/services.html'),
+                loadComponent('software-container', 'components/software.html'),
+                loadComponent('contact-container', 'components/contact.html')
             ]);
 
             // Components တွေရောက်လာမှ UI Effect တွေကို အသက်သွင်းမယ်
             initUI();
         });
 
-        // UI Effect များအတွက် Function
+        // UI Effect များအတွက် Function (Menu, Cursor, Scroll Animations)
         function initUI() {
             // 1. Mobile Menu Toggle
             const mobileBtn = document.getElementById('mobile-menu-btn');
             const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
 
             if (mobileBtn && mobileMenu) {
-                mobileBtn.addEventListener('click', () => {
+                const toggleMenu = () => {
                     mobileMenu.classList.toggle('translate-x-full');
                     const icon = mobileBtn.querySelector('i');
                     if (mobileMenu.classList.contains('translate-x-full')) {
@@ -167,6 +177,13 @@
                         icon.classList.remove('fa-bars');
                         icon.classList.add('fa-times');
                     }
+                };
+
+                mobileBtn.addEventListener('click', toggleMenu);
+                
+                // Menu Link နှိပ်လိုက်ရင် Menu ပြန်ပိတ်သွားအောင်
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', toggleMenu);
                 });
             }
 
