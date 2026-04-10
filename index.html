@@ -218,6 +218,25 @@
                 });
             }
 
+            // [ Mobile Touch Effect]
+            
+            if (window.matchMedia("(pointer: coarse)").matches) {
+                // ဖုန်းမှာ လက်နဲ့ထိလိုက်တဲ့အခါ အမှုန်လေးတွေ ပန်းထွက်လာစေရန် (Tap Effect)
+                document.addEventListener('touchstart', (e) => {
+                    const touch = e.touches[0];
+                    // အမှုန် (၃) ခုလောက် တစ်ပြိုင်တည်းထွက်လာအောင်
+                    for(let i=0; i<3; i++) {
+                        createParticle(touch.clientX, touch.clientY);
+                    }
+                }, { passive: true });
+
+                // ဖုန်းမှာ လက်နဲ့ပွတ်ဆွဲတဲ့အခါ အမှုန်လေးတွေ လိုက်လာစေရန် (Swipe/Scroll Effect)
+                document.addEventListener('touchmove', (e) => {
+                    const touch = e.touches[0];
+                    createParticle(touch.clientX, touch.clientY);
+                }, { passive: true });
+            }
+
             function createParticle(x, y) {
                 const particle = document.createElement('div');
                 particle.classList.add('particle');
