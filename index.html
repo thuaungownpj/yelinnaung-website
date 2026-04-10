@@ -38,7 +38,7 @@
             cursor: auto; 
         }
 
-        /* --- Custom Magic Cursor (PC Only) --- */
+        /* --- Custom Magic Cursor (PC ONLY) --- */
         @media (pointer: fine) {
             body { cursor: none; }
             #cursor {
@@ -77,6 +77,26 @@
             0% { opacity: 1; transform: scale(1); }
             100% { opacity: 0; transform: scale(0) translate(0, 20px); }
         }
+
+        /* Holographic Card Effect */
+        .holo-card {
+            background: rgba(20, 20, 25, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            transform-style: preserve-3d;
+        }
+        .holo-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+            transform: skewX(-25deg);
+        }
+        .holo-card:hover::before { left: 100%; }
 
         /* Water Flow Text Effect */
         .water-text {
@@ -128,7 +148,6 @@
     <div id="contact-container"></div>
 
     <script>
-        // HTML ဖိုင်များကို လှမ်းခေါ်မည့် Function
         async function loadComponent(elementId, filePath) {
             try {
                 const response = await fetch(filePath);
@@ -143,9 +162,7 @@
             }
         }
 
-        // Website ပွင့်သည်နှင့် ဖိုင်အားလုံးကို ပြိုင်တည်းဆွဲယူမည်
         document.addEventListener("DOMContentLoaded", async () => {
-            // Components တွေကို အရင်ပြည့်အောင် ခေါ်မယ်
             await Promise.all([
                 loadComponent('navbar-container', 'components/navbar.html'),
                 loadComponent('home-container', 'components/home.html'),
@@ -155,11 +172,9 @@
                 loadComponent('contact-container', 'components/contact.html')
             ]);
 
-            // Components တွေရောက်လာမှ UI Effect တွေကို အသက်သွင်းမယ်
             initUI();
         });
 
-        // UI Effect များအတွက် Function (Menu, Cursor, Scroll Animations)
         function initUI() {
             // 1. Mobile Menu Toggle
             const mobileBtn = document.getElementById('mobile-menu-btn');
@@ -181,7 +196,6 @@
 
                 mobileBtn.addEventListener('click', toggleMenu);
                 
-                // Menu Link နှိပ်လိုက်ရင် Menu ပြန်ပိတ်သွားအောင်
                 mobileLinks.forEach(link => {
                     link.addEventListener('click', toggleMenu);
                 });
@@ -208,10 +222,34 @@
                 const particle = document.createElement('div');
                 particle.classList.add('particle');
                 document.body.appendChild(particle);
+                // 🔴 မူရင်းအတိုင်း Particle Position သတ်မှတ်သည့်အပိုင်း ပြန်လည်ထည့်သွင်းထားပါသည်
+                const destinationX = x + (Math.random() - 0.5) * 50;
+                const destinationY = y + (Math.random() - 0.5) * 50;
+                particle.style.left = x + 'px';
+                particle.style.top = y + 'px';
+                
                 setTimeout(() => { particle.remove(); }, 1000);
             }
 
-            // 3. Scroll Reveal Animation
+            // 3. 3D Tilt Effect
+            const cards = document.querySelectorAll('.tilt-card');
+            cards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    const rotateX = ((y - centerY) / centerY) * -10; 
+                    const rotateY = ((x - centerX) / centerX) * 10;
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+                });
+            });
+
+            // 4. Scroll Reveal Animation
             const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
             const observer = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
