@@ -1,45 +1,57 @@
-<section id="software" class="min-h-screen flex flex-col justify-center items-center py-20 relative border-t border-white/10">
-    <div class="absolute top-1/2 left-0 w-[400px] h-[400px] bg-neonPink/10 rounded-full blur-[150px] pointer-events-none"></div>
-
-    <div class="max-w-6xl mx-auto px-4 w-full relative z-10">
-        <div class="reveal-item text-center opacity-0 translate-y-10 transition-all duration-700 ease-out mb-16">
-            <h2 class="text-4xl md:text-5xl font-black text-white tracking-tight">
-                My <span class="text-neonPink drop-shadow-[0_0_10px_rgba(188,19,254,0.8)]">Software</span>
-            </h2>
-            <div class="h-1 w-20 bg-neonPink mx-auto mt-4 rounded-full shadow-[0_0_10px_rgba(188,19,254,0.5)]"></div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto">
-            <div class="reveal-item opacity-0 translate-y-10 transition-all duration-700 ease-out delay-100 group relative p-6 rounded-3xl bg-white/5 border border-white/10 hover:border-red-500/50 backdrop-blur-xl hover:-translate-y-2 transition-all shadow-lg overflow-hidden interactable flex flex-col md:flex-row items-center gap-6">
-                <div class="absolute top-0 left-0 w-32 h-32 bg-red-500/10 rounded-full blur-[50px] group-hover:bg-red-500/20 transition-colors pointer-events-none"></div>
-                
-                <img src="images/ylatv.png" alt="YLA TV" class="w-24 h-24 rounded-2xl object-cover shadow-[0_0_15px_rgba(229,9,20,0.5)] relative z-10 group-hover:scale-105 transition-transform" onerror="this.src='https://via.placeholder.com/100x100/111/e50914?text=YLA+TV'">
-                
-                <div class="relative z-10 text-center md:text-left flex-1">
-                    <h3 class="text-2xl font-bold text-white mb-2 font-mm">YLA TV</h3>
-                    <p class="text-gray-400 text-sm mb-4 font-mm leading-relaxed">
-                        မြန်မာစာတန်းထိုး ဇာတ်ကားများ၊ ဇာတ်လမ်းတွဲများနှင့် ဘောလုံးပွဲ Live များကို အခမဲ့ကြည့်ရှုနိုင်သော ဆော့ဝဲလ်။
-                    </p>
-                    <div class="flex gap-3 justify-center md:justify-start">
-                        <span class="px-3 py-1 rounded-full bg-white/10 text-xs font-bold text-gray-300 border border-white/20"><i class="fab fa-android text-green-500 mr-1"></i> Android</span>
-                        <span class="px-3 py-1 rounded-full bg-white/10 text-xs font-bold text-gray-300 border border-white/20"><i class="fas fa-tv text-red-500 mr-1"></i> TV Box</span>
+<section id="apps" class="py-20 relative">
+    <div class="max-w-6xl mx-auto px-6">
+        <h2 class="text-4xl font-bold mb-12 flex items-center gap-4">
+            <span class="w-2 h-10 bg-neonPink rounded-full"></span> My Software
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="holo-card rounded-2xl p-6 interactable tilt-card flex flex-col h-full">
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="w-16 h-16 rounded-xl overflow-hidden border border-white/10 shrink-0">
+                        <img src="images/ylatv.png" alt="YLA TV" class="w-full h-full object-cover">
                     </div>
+                    <div>
+                        <h3 class="font-bold text-lg text-white">YLA TV (Mobile)</h3>
+                        <span class="text-xs bg-neonPink/20 text-neonPink px-2 py-1 rounded">Entertainment</span>
+                    </div>
+                </div>
+                <p class="text-gray-400 text-sm mb-6 font-mm flex-grow">Android ဖုန်းများတွင် ရုပ်ရှင်၊ ဇာတ်လမ်းတွဲများနှင့် ဘောလုံးပွဲများကို ကြည့်ရှုနိုင်သော ဆော့ဝဲလ်။</p>
+                <div class="grid grid-cols-2 gap-3 mt-auto">
+                    <a href="https://ylatv.com/" class="bg-blue-600 hover:bg-blue-500 py-2.5 rounded-lg text-center text-sm font-bold transition flex items-center justify-center gap-2 text-white"><i class="fas fa-globe"></i> Website</a>
+                    <a href="https://cdn.ylatvapp.store/file/movie-drive-01/ylatv_v1.5.apk" class="bg-white/10 hover:bg-white/20 border border-white/20 py-2.5 rounded-lg text-center text-sm font-bold transition flex items-center justify-center gap-2 text-neonBlue"><i class="fas fa-download"></i> Download</a>
                 </div>
             </div>
 
-            <div class="reveal-item opacity-0 translate-y-10 transition-all duration-700 ease-out delay-200 group relative p-6 rounded-3xl bg-white/5 border border-white/10 hover:border-yellow-500/50 backdrop-blur-xl hover:-translate-y-2 transition-all shadow-lg overflow-hidden interactable flex flex-col md:flex-row items-center gap-6">
-                <div class="absolute top-0 right-0 w-32 h-32 bg-yellow-500/10 rounded-full blur-[50px] group-hover:bg-yellow-500/20 transition-colors pointer-events-none"></div>
-                
-                <img src="images/dhammabook.png" alt="Dhamma Book" class="w-24 h-24 rounded-2xl object-cover shadow-[0_0_15px_rgba(234,179,8,0.5)] relative z-10 group-hover:scale-105 transition-transform" onerror="this.src='https://via.placeholder.com/100x100/111/eab308?text=Dhamma'">
-                
-                <div class="relative z-10 text-center md:text-left flex-1">
-                    <h3 class="text-2xl font-bold text-white mb-2 font-mm">Dhamma Book</h3>
-                    <p class="text-gray-400 text-sm mb-4 font-mm leading-relaxed">
-                        တရားစာအုပ်များ၊ ပရိတ်ကြီး ၁၁ သုတ်နှင့် ပဋ္ဌာန်းတရားတော်များကို ဖုန်းထဲတွင် အလွယ်တကူ ဖတ်ရှုနာယူနိုင်သော ဆော့ဝဲလ်။
-                    </p>
-                    <div class="flex gap-3 justify-center md:justify-start">
-                        <span class="px-3 py-1 rounded-full bg-white/10 text-xs font-bold text-gray-300 border border-white/20"><i class="fab fa-android text-green-500 mr-1"></i> Android</span>
+            <div class="holo-card rounded-2xl p-6 interactable tilt-card flex flex-col h-full">
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="w-16 h-16 rounded-xl overflow-hidden border border-white/10 shrink-0">
+                        <img src="images/ylatv.png" alt="YLA TV Box" class="w-full h-full object-cover">
                     </div>
+                    <div>
+                        <h3 class="font-bold text-lg text-white">YLA TV (TV Version)</h3>
+                        <span class="text-xs bg-purple-500/20 text-purple-400 px-2 py-1 rounded">Android TV</span>
+                    </div>
+                </div>
+                <p class="text-gray-400 text-sm mb-6 font-mm flex-grow">Android TV နှင့် TV Box များအတွက် သီးသန့်ထုတ်လုပ်ထားသော Version ဖြစ်သည်။</p>
+                <div class="grid grid-cols-2 gap-3 mt-auto">
+                    <a href="https://ylatv.com/#tv" class="bg-yellow-500 hover:bg-yellow-400 py-2.5 rounded-lg text-center text-sm font-bold transition flex items-center justify-center gap-2 text-black font-mm"><i class="fas fa-book-open"></i> ထည့်သွင်းနည်း</a>
+                    <a href="https://cdn.ylatvapp.store/file/movie-drive-01/ylatvfortvv1.apk" class="bg-white/10 hover:bg-white/20 border border-white/20 py-2.5 rounded-lg text-center text-sm font-bold transition flex items-center justify-center gap-2 text-neonBlue"><i class="fas fa-download"></i> Download</a>
+                </div>
+            </div>
+
+            <div class="holo-card rounded-2xl p-6 interactable tilt-card flex flex-col h-full">
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="w-16 h-16 rounded-xl overflow-hidden border border-white/10 shrink-0">
+                        <img src="images/dhammabook.png" alt="Dhamma Book" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg text-white">Dhamma Book</h3>
+                        <span class="text-xs bg-yellow-400/20 text-yellow-400 px-2 py-1 rounded">Education</span>
+                    </div>
+                </div>
+                <p class="text-gray-400 text-sm mb-6 font-mm flex-grow">တရားစာအုပ်များနှင့် ဘာသာရေးဗဟုသုတများကို ဖတ်ရှုလေ့လာနိုင်သော ဆော့ဝဲလ်။</p>
+                <div class="grid grid-cols-2 gap-3 mt-auto">
+                    <a href="#" class="bg-green-600 hover:bg-green-500 py-2.5 rounded-lg text-center text-sm font-bold transition flex items-center justify-center gap-2 text-white"><i class="fab fa-google-play"></i> PlayStore</a>
+                    <a href="#" class="bg-white/10 hover:bg-white/20 border border-white/20 py-2.5 rounded-lg text-center text-sm font-bold transition flex items-center justify-center gap-2 text-neonBlue"><i class="fas fa-download"></i> Download</a>
                 </div>
             </div>
         </div>
